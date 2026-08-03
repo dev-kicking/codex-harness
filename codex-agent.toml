@@ -1,9 +1,0 @@
-name = "replace-with-agent-name"
-description = "Describe the bounded tasks this Codex agent accepts and when it should not be used."
-developer_instructions = """
-Own one bounded work unit from the parent task.
-Respect the declared read/write boundary and return a concise result with evidence.
-Do not broaden scope, delegate again, or hide partial failure.
-"""
-
-# Add model, reasoning, tools, or permissions only with measured repository-specific need.
