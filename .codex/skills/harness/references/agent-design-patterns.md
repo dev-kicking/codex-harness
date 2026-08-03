@@ -1,3 +1,9 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+Adapted for Codex Harness by dev-kicking in 2026 from revfactory/harness and SaehwanPark/meta-harness.
+See NOTICE for upstream attribution and a summary of changes.
+-->
+
 # Agent Design Patterns
 
 Choose the smallest pattern that makes ownership and synthesis explicit. Every pattern needs named inputs, outputs, a final owner, and a failure policy.
