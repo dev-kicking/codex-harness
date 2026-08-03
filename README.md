@@ -41,9 +41,7 @@ Replace `/path/to/MyAndroidApp` with your project folder.
 
 ```bash
 cd ~/tools/codex-harness
-python3 scripts/install_harness.py \
-  --scope project \
-  --target /path/to/MyAndroidApp
+python3 scripts/install_harness.py   --scope project   --target /path/to/MyAndroidApp
 ```
 
 You can use the same command for a blank project or a project that already has code.
@@ -117,10 +115,7 @@ To refresh only the installed shared Harness skill after this repository changes
 ```bash
 cd ~/tools/codex-harness
 git pull
-python3 scripts/install_harness.py \
-  --scope project \
-  --target /path/to/MyAndroidApp \
-  --force
+python3 scripts/install_harness.py   --scope project   --target /path/to/MyAndroidApp   --force
 ```
 
 `--force` replaces only `.codex/skills/harness/`. Keep your project-specific skills outside that folder so they remain intact.
