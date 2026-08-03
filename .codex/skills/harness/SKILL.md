@@ -3,6 +3,13 @@ name: harness
 description: Design Codex-native reusable agent workflows with focused skills, bounded custom agents, and auditable handoffs.
 ---
 
+<!--
+SPDX-License-Identifier: Apache-2.0
+Adapted for Codex Harness by dev-kicking in 2026 from revfactory/harness and SaehwanPark/meta-harness.
+See NOTICE for upstream attribution and a summary of changes.
+-->
+
+
 # Codex Harness
 
 Use this skill to turn a recurring project workflow into the smallest useful set of Codex skills, agent profiles, team specs, and verification steps. It is for reusable structure, not a one-off task a single agent can complete directly.
