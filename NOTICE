@@ -1,4 +1,23 @@
 Codex Harness
 Copyright 2026 dev-kicking
 
-This project is independently adapted from revfactory/harness and SaehwanPark/meta-harness. The upstream projects are distributed under the Apache License, Version 2.0. This Codex-only adaptation is distributed under the same license. See LICENSE.
+This project is an independent, Codex-focused adaptation of:
+
+1. Harness
+   Copyright 2026 revfactory contributors
+   Source: https://github.com/revfactory/harness
+   License: Apache License, Version 2.0
+
+2. Meta Harness
+   Copyright 2026 SaehwanPark contributors
+   Source: https://github.com/SaehwanPark/meta-harness
+   License: Apache License, Version 2.0
+
+Changes made by dev-kicking include a Codex-native skill layout, Codex-specific
+delegation guidance, installer and validator scripts, documentation, templates,
+and removal of non-Codex runtime support.
+
+This repository is not an official project of revfactory or SaehwanPark and is
+not endorsed by either upstream project.
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
