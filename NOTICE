@@ -1,16 +1,15 @@
 Codex Harness
 Copyright 2026 dev-kicking
 
-This project is an independent, Codex-focused adaptation of:
+This project is an independent, Codex-focused adaptation of the following
+Apache License 2.0 projects:
 
 1. Harness
-   Copyright 2026 revfactory contributors
-   Source: https://github.com/revfactory/harness
+   Project source: https://github.com/revfactory/harness
    License: Apache License, Version 2.0
 
 2. Meta Harness
-   Copyright 2026 SaehwanPark contributors
-   Source: https://github.com/SaehwanPark/meta-harness
+   Project source: https://github.com/SaehwanPark/meta-harness
    License: Apache License, Version 2.0
 
 Changes made by dev-kicking include a Codex-native skill layout, Codex-specific
