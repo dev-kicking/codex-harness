@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+# Adapted for Codex Harness by dev-kicking in 2026 from revfactory/harness and SaehwanPark/meta-harness.
+# See NOTICE for upstream attribution and a summary of changes.
+
 """Install the Codex Harness skill without changing the target repository's AGENTS.md."""
 
 from __future__ import annotations
