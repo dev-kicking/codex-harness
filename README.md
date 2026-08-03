@@ -1,66 +1,135 @@
 # Codex Harness
 
-A **Codex-native** factory for domain-specific agent teams, reusable skills, and inspectable handoff workflows.
+> **English** | [한국어](README.ko.md)
 
-Codex Harness turns a recurring workflow into the smallest durable artifact set: repository guidance, specialist skills, optional bounded custom-agent profiles, a team specification, and validation steps. It intentionally targets Codex only.
+A friendly starting point for turning a blank or existing codebase into a repeatable **Codex development workflow**.
 
-## What it provides
+## What is this?
 
-- A six-phase design workflow: domain analysis, architecture, role contracts, skill generation, orchestration, and validation.
-- Six team patterns: Pipeline, Fan-out/Fan-in, Expert Pool, Producer-Reviewer, Supervisor, and Hierarchical Delegation.
-- Native paths for `AGENTS.md`, `.codex/skills/`, `.codex/agents/`, `docs/harness/`, and `_workspace/` handoffs.
-- Explicit rules for delegation, parallel-write isolation, shared test resources, review, and partial failure.
-- A project or user-level installer that copies or symlinks the native Harness skill without modifying the target repository's `AGENTS.md`.
+Codex Harness is **not an Android library** and it does not change your app just by being installed.
 
-## Install
+It is a reusable skill that helps Codex design project-specific instructions for work that repeats: architecture reviews, Compose UI work, Gradle troubleshooting, test planning, code review, release preparation, and more.
 
-Install into a project:
-
-```bash
-python3 scripts/install_harness.py --scope project --target /path/to/project
-```
-
-Install as a user-level Codex skill:
-
-```bash
-python3 scripts/install_harness.py --scope user
-```
-
-Use `--mode symlink` for a live local link, `--dry-run` to inspect the destination, and `--force` only when replacing an existing Harness install.
-
-The installed skill is placed at `.codex/skills/harness/`. The target repository keeps ownership of its own `AGENTS.md`.
-
-## Use
-
-Ask Codex for a reusable workflow, for example:
-
-> Build a harness for this repository's release process. Design the smallest team structure, generate the Codex skills and team spec, and include a failure-path validation plan.
-
-The primary skill is at [`.codex/skills/harness/SKILL.md`](.codex/skills/harness/SKILL.md). It creates only the artifacts that have a clear reuse and coordination purpose.
-
-## Repository layout
+Think of it like this:
 
 ```text
-codex-harness/
-├── AGENTS.md
-├── .codex/
-│   └── skills/harness/
-│       ├── SKILL.md
-│       ├── references/
-│       └── templates/
-├── scripts/
-│   ├── install_harness.py
-│   └── validate.py
-└── NOTICE
+codex-harness repository = the reusable blueprint
+Your Android project       = the place where Codex creates project-specific rules
 ```
 
-## Validate
+## The simple workflow
+
+1. Start with a new or existing project.
+2. Install Harness into that project's `.codex/skills/` directory.
+3. Open Codex from the project root.
+4. Ask Codex to use Harness for your project.
+5. Review the generated project-specific skills and commit the ones you want to keep.
+
+> Installing Harness only copies the reusable Harness skill. It does not automatically create a team or edit your Android code.
+
+## Quick start for an Android project
+
+### 1. Download this repository once
+
+```bash
+git clone https://github.com/dev-kicking/codex-harness.git ~/tools/codex-harness
+```
+
+### 2. Install it into your Android project
+
+Replace `/path/to/MyAndroidApp` with your project folder.
+
+```bash
+cd ~/tools/codex-harness
+python3 scripts/install_harness.py \
+  --scope project \
+  --target /path/to/MyAndroidApp
+```
+
+You can use the same command for a blank project or a project that already has code.
+
+### 3. Open Codex in the Android project
+
+```bash
+cd /path/to/MyAndroidApp
+```
+
+Then open your normal Codex workflow from this folder.
+
+### 4. Give Codex a clear first request
+
+For an existing Android project:
+
+```text
+Use Harness to set up a reusable development workflow for this Android project.
+First inspect the current codebase and Gradle configuration.
+Then decide which reusable skills are actually needed for Kotlin, Compose, architecture, build tooling, and QA.
+Create only the necessary files under .codex/skills/ and docs/harness/.
+Keep parallel edits safe by assigning non-overlapping file ownership.
+```
+
+For a blank Android project, add your intended stack and goal:
+
+```text
+Use Harness to design a reusable workflow for a new Android app.
+The stack will be Kotlin, Jetpack Compose, Hilt, Room, Retrofit, and Gradle.
+The app will help users manage ...
+Create the smallest useful set of skills and a team specification.
+```
+
+## What Codex may create
+
+After reviewing your project, Codex may add only the artifacts that are useful:
+
+```text
+MyAndroidApp/
+├── .codex/
+│   └── skills/
+│       ├── harness/                # installed shared blueprint
+│       ├── android-orchestrator/   # project-specific workflow
+│       ├── compose-ui/             # only when useful
+│       ├── gradle-build/           # only when useful
+│       └── android-qa/             # only when useful
+├── docs/
+│   └── harness/
+│       └── android-development/
+│           └── team-spec.md
+└── AGENTS.md                       # only when concise repo-wide guidance helps
+```
+
+Review these files before committing. They are guidance for Codex, not application source code.
+
+## Use it day to day
+
+Once project-specific skills exist, ask Codex for work normally. Be specific about the outcome:
+
+```text
+Use the Android workflow to add offline caching for the user profile API.
+Update the data layer, add tests, and have the QA step review error states.
+```
+
+Harness is most useful when a project has recurring work or needs clear review and handoff rules. For a small one-off edit, ask Codex directly instead.
+
+## Update the shared Harness skill
+
+To refresh only the installed shared Harness skill after this repository changes:
+
+```bash
+cd ~/tools/codex-harness
+git pull
+python3 scripts/install_harness.py \
+  --scope project \
+  --target /path/to/MyAndroidApp \
+  --force
+```
+
+`--force` replaces only `.codex/skills/harness/`. Keep your project-specific skills outside that folder so they remain intact.
+
+## Validate this repository
 
 ```bash
 python3 scripts/validate.py
 ```
-
-The validator confirms the Codex-only paths, required skill artifacts, YAML frontmatter, and absence of legacy runtime references.
 
 ## License and attribution
 
